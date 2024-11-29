@@ -23,3 +23,16 @@ export async function POST(request: Request) {
   // return Response with pet to json
   return NextResponse.json({ pet })
 }
+
+// PUT /api/pets
+export async function PUT(request: Request) {
+  // get data from request body
+  const data = await request.json()
+  // update pet record
+  const pets = await prisma.pet.updateMany({
+    // data from request body
+    data: data.pet
+  })
+  // return Response with pet to json
+  return NextResponse.json({ pets })
+}

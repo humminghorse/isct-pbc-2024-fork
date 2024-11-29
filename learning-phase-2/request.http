@@ -22,3 +22,25 @@ Content-Type: application/json
     "ownerId": 1
   }
 }
+
+###
+
+PUT {{baseUrl}}/pets HTTP/1.1
+Content-Type: application/json
+
+{
+  "pet": {
+    "gender": "Female"
+  }
+}
+
+###
+
+PUT {{baseUrl}}/pets/3 HTTP/1.1
+Content-Type: application/json
+
+{
+  "pet": {
+    "name": "Luna"
+  }
+}
