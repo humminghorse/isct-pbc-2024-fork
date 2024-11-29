@@ -30,9 +30,19 @@ export async function PUT(request: Request) {
   const data = await request.json()
   // update pet record
   const pets = await prisma.pet.updateMany({
+    // where gender is Male
+    where: { gender: 'Male' },
     // data from request body
     data: data.pet
   })
   // return Response with pet to json
+  return NextResponse.json({ pets })
+}
+
+// DELETE /api/pets
+export async function DELETE() {
+  // delete all pets
+  const pets = await prisma.pet.deleteMany()
+  // return Response with pets to json
   return NextResponse.json({ pets })
 }
