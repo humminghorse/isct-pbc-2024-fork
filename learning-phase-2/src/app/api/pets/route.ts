@@ -10,3 +10,16 @@ export async function GET() {
   })
   return NextResponse.json({ pets })
 }
+
+// POST /api/pets
+export async function POST(request: Request) {
+  // get data from request body
+  const data = await request.json()
+  // create pet record
+  const pet = await prisma.pet.create({
+    // data from request body
+    data: data.pet
+  })
+  // return Response with pet to json
+  return NextResponse.json({ pet })
+}
