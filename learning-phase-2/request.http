@@ -97,8 +97,13 @@ POST {{baseUrl}}/images HTTP/1.1
 Content-Type: multipart/form-data; boundary=MyBoundary
 
 --MyBoundary
-Content-Disposition: form-data; name="file"; filename="pan.jpg"
+Content-Disposition: form-data; name="file"; filename="miru.jpg"
 Content-Type: image/jpeg
 
-< images/pan.jpg
+< images/miru.jpg
 --MyBoundary--
+
+
+###
+GET {{baseUrl}}/images HTTP/1.1
+Content-Type: application/json
